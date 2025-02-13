@@ -188,7 +188,12 @@ class QuerySupabaseTransformer<_Model extends SupabaseModel> {
 
     return [
       {
-        queryKey: '${_compareToSearchParam(condition.compare)}.${condition.value}',
+        if (condition.value == null && condition.compare == Compare.exact)
+          queryKey: 'is.${condition.value}'
+        else if (condition.value == null && condition.compare == Compare.notEqual)
+          queryKey: 'not.is.${condition.value}'
+        else
+          queryKey: '${_compareToSearchParam(condition.compare)}.${condition.value}',
       },
       ...associationConditions,
     ];
