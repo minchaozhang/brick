@@ -24,7 +24,10 @@ dependencies:
     git:
       url: https://github.com/minchaozhang/brick.git
       path: packages/brick_supabase
-  brick_supabase_generators: '>=1.0.0 <2.0.0'
+  brick_supabase_generators:
+    git:
+      url: https://github.com/minchaozhang/brick.git
+      path: packages/brick_supabase_generators
   build: '>=2.0.0 <3.0.0'
   dart_style: '>=2.0.0 <3.0.0'
   logging: '>=1.0.0 <2.0.0'
